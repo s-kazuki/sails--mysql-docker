@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+
+  sails:
+    container_name: sails
+    image: skazuki/alpine-node-yarn-install
+    restart: always
+    environment:
+      - PORT=1337
+    volumes:
+      - .:/node
+    ports:
+      - 1337:1337
+    links:
+      - mariadb
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sails-mysql-docker
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - mariadb
