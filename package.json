@@ -20,7 +20,7 @@
     "@sailshq/htmlhint": "^0.9.16",
     "@sailshq/lesshint": "^4.6.6",
     "grunt": "1.0.4",
-    "sails-hook-grunt": "^4.0.0"
+    "sails-hook-grunt": "^4.0.1"
   },
   "scripts": {
     "start:production": "NODE_ENV=production node app.js",
